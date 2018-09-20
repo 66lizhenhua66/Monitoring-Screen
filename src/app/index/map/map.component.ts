@@ -62,48 +62,48 @@ export class MapComponent implements OnDestroy {
         icon: this.icon_room,
       }).on('click', (ev) => {
         this.selected_room = this.rooms[0]
-      }),
+      }).bindTooltip(this.get_room_str('动力中心')).openTooltip(),
       L.marker([1.7, -12.1], {
         title: "新能源", 
         alt: "new_power",
         icon: this.icon_room,
       }).on('click', (ev) => {
         this.selected_room = this.rooms[1]
-      }),
+      }).bindTooltip(this.get_room_str('新能源')).openTooltip(),
       L.marker([5, -10], {
         title: "试验认证", 
         alt: "experiment",
         icon: this.icon_room,
       }).on('click', (ev) => {
         this.selected_room = this.rooms[2]
-      }),
+      }).bindTooltip(this.get_room_str('试验认证')).openTooltip(),
       L.marker([4, -5.5], {
         title: "NVH", 
         alt: "nvh",
         icon: this.icon_room,
       }).on('click', (ev) => {
         this.selected_room = this.rooms[3]
-      }),
+      }).bindTooltip(this.get_room_str('NVH')).openTooltip(),
       L.marker([6, -23], {
         title: "西北门", 
         alt: "化龙基地",
         icon: this.icon_door,
-      }),
+      }).bindTooltip(this.get_door_str('西北门')).openTooltip(),
       L.marker([18, 2], {
         title: "正门", 
         alt: "化龙基地",
         icon: this.icon_door,
-      }),
+      }).bindTooltip(this.get_door_str('正门')).openTooltip(),
       L.marker([10.5, 17.5], {
         title: "东门", 
         alt: "化龙基地",
         icon: this.icon_door,
-      }),
+      }).bindTooltip(this.get_door_str('东门')).openTooltip(),
       L.marker([-11, 29], {
         title: "南门", 
         alt: "化龙基地",
         icon: this.icon_door,
-      }),
+      }).bindTooltip(this.get_door_str('南门')).openTooltip(),
 
     ];
 
@@ -124,6 +124,16 @@ export class MapComponent implements OnDestroy {
     setTimeout(() => {
       map.invalidateSize();
     }, 0);
+  }
+
+  get_room_str(str: string): string {
+    // return room rich string
+    return `<span style="color:#2836e9; font-size:1.5rem; font-wegiht: bold;">${str}</span>`;
+  }
+
+  get_door_str(str: string): string {
+    // return door rich string
+    return `<span style="color:#2836e9; font-size:1rem; font-wegiht: bold;">${str}</span>`;
   }
 
 
